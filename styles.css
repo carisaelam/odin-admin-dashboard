@@ -15,7 +15,8 @@ body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   font-family:
-    "DM Sans", system-ui,
+    "DM Sans",
+    system-ui,
     -apple-system,
     BlinkMacSystemFont,
     "Segoe UI",
@@ -67,35 +68,155 @@ body {
 /* Container */
 .container {
   display: grid;
-  grid-template-columns: 1fr 4fr;
-  grid-template-rows: 1fr 3fr;
+  grid-template-columns: 1fr 5fr;
+  grid-template-rows: 10rem, 1fr;
   grid-template-areas: "sidebar header" "sidebar main";
 }
 
 /* Header */
 .header {
-  border: 1px solid red;
-  background-color: hsla(0, 100%, 50%, 0.344);
   grid-area: header;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  box-shadow: 0 0 5px grey;
+  padding: 0 1rem 1rem;
+  position: sticky;
+  background-color: whitesmoke;
+  top: 0;
+}
+
+.header__searchbar__container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem;
+  grid-area: 1 / 1 / 1 / 2;
+}
+
+.header__searchbar__container .icon {
+  width: 1.5rem;
+  min-width: 1rem;
+  margin: 0 0.5rem;
+}
+
+.header__searchbar__container .icon:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+.header__searchbar__container input {
+  width: 100%;
+  min-width: 3rem;
+  height: 1.5rem;
+  border: none;
+  border-radius: 1rem;
+  padding: 0.5rem;
+  background-color: rgb(229, 229, 229);
+}
+
+.header__hello__container {
+  grid-area: 2 / 1 / 2 / 2;
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  padding: 0.5rem;
+  align-items: center;
+}
+
+.header__hello__container img {
+  border-radius: 100%;
+  max-width: 4rem;
+  justify-self: center;
+}
+
+.header__hello__text__container {
+  font-size: clamp(0.5rem, 0.5rem + 1vw, 1.5rem);
+  line-height: 1.25;
+  margin-left: 0.5rem;
+  justify-self: start;
+}
+
+.header__hello__text__container .header__name {
+  font-size: clamp(0.5rem, 0.5rem + 1vw, 2rem);
+  font-weight: bold;
+}
+
+.header__profile__container {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  padding: 0.5rem;
+  gap: 2rem;
+}
+
+.header__profile__container .icon {
+  width: 1.5rem;
+  min-width: 1rem;
+  margin-right: 0.5rem;
+}
+
+.header__profile__container img {
+  border-radius: 100%;
+  width: auto;
+  height: 3rem;
+}
+
+.header__profile__name {
+  font-size: clamp(0.7rem, 0.7rem + 1vw, 1.5rem);
+  font-weight: bold;
+}
+
+.header__button__container {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  gap: clamp(0.25rem, 0.25rem + 2vw, 1.5rem);
+  margin-right: 1rem;
+}
+
+.header__button__container button {
+  border: none;
+  padding: 0.5rem clamp(1rem, 1rem + 1vw, 2.5rem);
+  background-color: rgb(54, 54, 222);
+  border-radius: 1.5rem;
+  color: whitesmoke;
+  box-shadow: 0 0 5px grey;
+  font-weight: bold;
+}
+
+.header__button__container button:hover {
+  background-color: hsla(240, 72%, 64%);
+  cursor: pointer;
+  transform: scale(1.05);
+}
+
+.header__button__container button:active {
+  background-color: hsla(240, 72%, 34%);
+  cursor: pointer;
+  transform: scale(1);
 }
 
 /* Sidebar */
 .sidebar {
-  border: 1px solid orange;
-  background-color: hsla(39, 100%, 50%, 0.475);
+  background-color: rgb(54, 54, 222);
+  color: aliceblue;
   grid-area: sidebar;
   padding: 0.5rem;
-  display: flex; 
+  display: flex;
   flex-direction: column;
   justify-content: flex-start;
   gap: 3rem;
+  position: sticky;
+  top: 0;
+  height: 100vh;
 }
 
 .sidebar__header--container {
   display: grid;
   grid-template-columns: 1fr 4fr;
   align-items: center;
-  gap: .5rem;
+  gap: 0.5rem;
+  padding: 1rem 1rem 1rem 0;
 }
 
 .sidebar__header--container .icon {
@@ -103,15 +224,15 @@ body {
 }
 
 .sidebar__header--container h1 {
-  font-size: clamp(1rem, 1rem + 1vw, 1.75rem)
+  font-size: clamp(1rem, 1rem + 1vw, 1.75rem);
 }
 
 .sidebar__icon--container {
   display: grid;
   grid-template-columns: 1fr 4fr;
   align-items: center;
-  gap: clamp(.25rem, .25rem + .25vw, .5rem); 
-  margin-bottom: .75rem;
+  gap: clamp(0.25rem, 0.25rem + 0.25vw, 0.5rem);
+  margin-bottom: 0.75rem;
 }
 
 .sidebar__icon--container .icon {
@@ -121,12 +242,123 @@ body {
 }
 
 .sidebar__icon--container h2 {
-  font-size: clamp(.7rem, .7rem + 1vw, 1.5rem)
+  font-size: clamp(0.7rem, 0.7rem + 1vw, 1rem);
 }
 
 /* Main */
 .main {
-  border: 1px solid blue;
-  background-color: hsla(240, 91%, 58%, 0.379);
+  background-color: rgba(211, 211, 211, 0.372);
   grid-area: main;
+  display: grid;
+  grid-template-columns: 5fr 2fr;
+  grid-template-rows: 1fr;
+  padding: 1rem;
+}
+
+.main__projects {
+  grid-column: 1;
+  grid-row: span 2;
+}
+
+.main__projects__container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
+  gap: 1rem;
+}
+
+.card {
+  display: grid;
+  grid-template-rows: 3fr 1fr;
+  padding: 1rem;
+  margin: 1rem;
+  background-color: whitesmoke;
+  border-left: 1rem solid orange;
+  border-top-left-radius: 1rem;
+  border-bottom-left-radius: 1rem;
+}
+
+.card:hover {
+  cursor: pointer;
+  background-color: rgb(255, 255, 255);
+  transform: scale(1.05);
+  transition: .3s;
+}
+
+.card__text {
+  grid-row: 1;
+}
+
+.card__icons {
+  grid-row: 2;
+  display: flex;
+  justify-content: end;
+  gap: 1rem;
+}
+
+.card__icons .icon {
+  min-width: 0.5rem;
+  max-width: 1rem;
+}
+
+.main__announcements {
+  grid-column: 2;
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.main__announcements__title,
+.main__trending__title,
+.main__projects__title {
+  margin-bottom: 0.5rem;
+  font-size: clamp(0.75rem, 0.75rem + 1vw, 1.25rem);
+}
+
+.main__announcements__block,
+.main__trending__block {
+  display: flex;
+  flex-direction: column;
+  padding: 0 0.5rem;
+  border-radius: 1rem;
+  background-color: whitesmoke;
+  box-shadow: 0 0 5px grey;
+}
+
+.main__announcements__block h4 {
+  font-size: clamp(0.9rem, 0.9rem + 1vw, 1.25rem);
+}
+
+.main__announcements__block p {
+  font-size: clamp(0.7rem, 0.7rem + 1vw, 1rem);
+}
+
+.main__announcements__block .block {
+  border-bottom: 1px solid grey;
+  padding: 0.5rem;
+}
+
+.main__announcements__block :last-child {
+  border: none;
+}
+
+.main__trending {
+  grid-column: 2;
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem;
+}
+
+.main__trending__block .block {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  font-size: clamp(0.4rem, 0.4rem + 1vw, 1.5rem);
+  align-items: center;
+  padding: 0.5rem;
+  gap: 0.5rem;
+}
+
+.main__trending__block .block img {
+  width: clamp(2rem, 2rem + 4vw, 4rem);
+  justify-self: center;
 }
