@@ -4,6 +4,13 @@ I completed the Admin Dashboard project as part of The Odin Project's Intermedia
 
 Throughout this project, I focused on refining my CSS Grid skills and incorporating various assets such as icons, fonts, and color palettes to enhance the design. I utilized resources like Material Design Icons for SVGs and Google Fonts for typography to achieve a professional look. By applying background colors and borders, I ensured precise visualization of the grid layout. This project served as an excellent opportunity to practice and hone my front-end development skills, culminating in a responsive and well-structured admin dashboard deployed via Netlify.
 
+## Desktop Preview 
+![Desktop Preview](assets/desktop-preview.png)
+
+## Mobile Preview 
+![Mobile Preview](assets/mobile-preview.png)
+
+
 ## Acknowledgements
 
 Thank you to Josh Comeau for the [Modern CSS Reset](https://www.joshwcomeau.com/css/custom-css-reset/)
